@@ -4,7 +4,6 @@ describe('The main view', function () {
   var page;
 
   beforeEach(function () {
-    // browser.get('http://nacssissil031.oracle.com:10800/index.html');
     browser.get('http://localhost:3000/index.html');
     page = require('./main.po');
   });

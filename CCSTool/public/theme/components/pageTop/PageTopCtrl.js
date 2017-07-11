@@ -12,9 +12,9 @@
     function PageTopCtrl($scope, $http, dataService, $state, $localStorage) {
 
         $scope.USERNAME = $localStorage.currentUser.username;
-
-
-
+        $scope.signOut = function(){
+            location.replace("http://localhost:3000/HomePage.html");
+        }
     }
 
 })();
