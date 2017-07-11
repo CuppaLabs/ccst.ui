@@ -1,0 +1,342 @@
+<style>
+
+    .banner-text {
+        padding: 0 0 0 0;
+        display: inline-block;
+        margin: 0;
+        background: #ffffff;
+        min-width: 800px;
+        min-height: 800px;
+        overflow: hidden;
+        background: rgba(0, 0, 0, 0.75);
+        border: solid 1px whitesmoke;
+        margin-top: 20px;
+        margin-bottom: 20px;
+
+    }
+
+
+</style>
+
+<script>
+
+    $("#card1").flip({
+        axis: 'y',
+        trigger: 'manual'
+    });
+
+    $(document).on("click", "#flip-btn", function() {
+        $("#card1").flip(true);
+       // $(this).attr("id","unflip-btn").text("Click to UNFLIP").removeClass("btn-success").addClass("btn-danger");
+    });
+
+    $(document).on("click", "#unflip-btn", function() {
+        $("#card1").flip(false);
+        //$(this).attr("id","flip-btn").text("Click to FLIP").removeClass("btn-danger").addClass("btn-success");
+    });
+
+    $("#card2").flip({
+        axis: 'y',
+        trigger: 'manual'
+    });
+
+    $(document).on("click", "#flip-btn2", function() {
+        $("#card2").flip(true);
+        // $(this).attr("id","unflip-btn").text("Click to UNFLIP").removeClass("btn-success").addClass("btn-danger");
+    });
+
+    $(document).on("click", "#unflip-btn2", function() {
+        $("#card2").flip(false);
+        //$(this).attr("id","flip-btn").text("Click to FLIP").removeClass("btn-danger").addClass("btn-success");
+    });
+
+
+    $("#card3").flip({
+        axis: 'y',
+        trigger: 'manual'
+    });
+
+    $(document).on("click", "#flip-btn3", function() {
+        $("#card3").flip(true);
+        // $(this).attr("id","unflip-btn").text("Click to UNFLIP").removeClass("btn-success").addClass("btn-danger");
+    });
+
+    $(document).on("click", "#unflip-btn3", function() {
+        $("#card3").flip(false);
+        //$(this).attr("id","flip-btn").text("Click to FLIP").removeClass("btn-danger").addClass("btn-success");
+    });
+
+    $("#card4").flip({
+        axis: 'y',
+        trigger: 'manual'
+    });
+
+    $(document).on("click", "#flip-btn4", function() {
+        $("#card4").flip(true);
+        // $(this).attr("id","unflip-btn").text("Click to UNFLIP").removeClass("btn-success").addClass("btn-danger");
+    });
+
+    $(document).on("click", "#unflip-btn4", function() {
+        $("#card4").flip(false);
+        //$(this).attr("id","flip-btn").text("Click to FLIP").removeClass("btn-danger").addClass("btn-success");
+    });
+
+    $("#card5").flip({
+        axis: 'y',
+        trigger: 'manual'
+    });
+
+    $(document).on("click", "#flip-btn5", function() {
+        $("#card5").flip(true);
+        // $(this).attr("id","unflip-btn").text("Click to UNFLIP").removeClass("btn-success").addClass("btn-danger");
+    });
+
+    $(document).on("click", "#unflip-btn5", function() {
+        $("#card5").flip(false);
+        //$(this).attr("id","flip-btn").text("Click to FLIP").removeClass("btn-danger").addClass("btn-success");
+    });
+
+    $("#card6").flip({
+        axis: 'y',
+        trigger: 'manual'
+    });
+
+    $(document).on("click", "#flip-btn6", function() {
+        $("#card6").flip(true);
+        // $(this).attr("id","unflip-btn").text("Click to UNFLIP").removeClass("btn-success").addClass("btn-danger");
+    });
+
+    $(document).on("click", "#unflip-btn6", function() {
+        $("#card6").flip(false);
+        //$(this).attr("id","flip-btn").text("Click to FLIP").removeClass("btn-danger").addClass("btn-success");
+    });
+
+</script>
+
+
+<div class="row">
+
+        <div class="col-lg-3">
+
+                        <div class="card" id="card1">
+
+                                    <div class="front">
+
+                                        <div ba-panel ba-panel-class="xsmall-panel">
+
+                                          <button type="button" class="btn btn-default btn-icon" id="flip-btn" style="float: left; margin-top: -5px; margin-left: -10px;"><i class="ion-arrow-left-c" style="color: red"></i></button>
+                                          <dashboard-pie-chart-apps></dashboard-pie-chart-apps>
+
+                                        </div>
+
+                                      </div>
+
+                                     <div class="back">
+
+                                       <div ba-panel ba-panel-title="Applications" ba-panel-class="xsmall-panel with-scroll feed-panel" style="margin: 2px 2px 2px 2px">
+
+                                           <blur-feed></blur-feed>
+
+                                         </div>
+
+                                      </div>
+
+                        </div>
+
+        </div>
+
+        <div class="col-lg-3">
+
+          <div class="card" id="card2">
+
+            <div class="front">
+
+              <div ba-panel ba-panel-class="xsmall-panel" >
+
+                <button type="button" class="btn btn-default btn-icon" id="flip-btn2" style="float: left; margin-top: -5px; margin-left: -10px;"><i class="ion-arrow-left-c" style="color: red"></i></button>
+
+                <dashboard-pie-chart-templated></dashboard-pie-chart-templated>
+              </div>
+
+            </div>
+
+
+            <div class="back">
+
+              <div ba-panel ba-panel-title="Templated apps" ba-panel-class="xsmall-panel with-scroll feed-panel" style="margin: 2px 2px 2px 2px">
+
+                <blur-feed-templated2></blur-feed-templated2>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-3">
+
+          <div class="card" id="card3">
+
+            <div class="front">
+
+
+              <div ba-panel ba-panel-class="xsmall-panel">
+
+                <button type="button" class="btn btn-default btn-icon" id="flip-btn3" style="float: left; margin-top: -5px; margin-left: -10px;"><i class="ion-arrow-left-c" style="color: red"></i></button>
+                <dashboard-pie-chart-completed></dashboard-pie-chart-completed>
+              </div>
+
+            </div>
+
+
+            <div class="back">
+
+              <div ba-panel ba-panel-title="Completed Apps" ba-panel-class="xsmall-panel with-scroll feed-panel" style="margin: 2px 2px 2px 2px">
+
+                <blur-feed-completed2></blur-feed-completed2>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-3">
+
+          <div class="card" id="card4">
+
+            <div class="front">
+
+
+              <div ba-panel ba-panel-class="xsmall-panel">
+
+                <button type="button" class="btn btn-default btn-icon" id="flip-btn4" style="float: left; margin-top: -5px; margin-left: -10px;"><i class="ion-arrow-left-c" style="color: red"></i></button>
+                <dashboard-pie-chart-incomplete></dashboard-pie-chart-incomplete>
+              </div>
+
+            </div>
+
+
+            <div class="back">
+
+              <div ba-panel ba-panel-title="Incomplete Apps" ba-panel-class="xsmall-panel with-scroll feed-panel" style="margin: 2px 2px 2px 2px">
+
+                <blur-feed-incomplete2></blur-feed-incomplete2>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-lg-6 col-md-12 col-sm-12" ba-panel>
+
+      <div class="ba-panel-heading">
+
+            <h4 class="ba-panel-title" style="text-align: center; color: white;">
+              <a data-toggle="collapse" href="#collapse2" style="color: white;">Applications Pie Charts</a>
+            </h4>
+
+      </div>
+
+      <div id="collapse2" class="panel-collapse collapse">
+
+          <div class="panel-body" ng-include="'pages/charts/amCharts/pieChart/pieChart.html'"></div>
+
+      </div>
+
+  </div>
+
+  <div class="col-lg-6 col-md-12 col-sm-12" ba-panel>
+
+    <div class="ba-panel-heading">
+
+      <h4 class="ba-panel-title" style="text-align: center; color: white;">
+        <a data-toggle="collapse" href="#collapse3" style="color: white;">Server Map</a>
+      </h4>
+
+    </div>
+
+    <div id="collapse3" class="panel-collapse collapse">
+
+      <div class="panel-body" ng-include="'pages/charts/amCharts/dashboardMap/dashboardMap.html'"></div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+    <div class="col-sm-12 col-md-12 col-lg12">
+
+            <div class="card" id="card5">
+
+                                            <div class="front">
+
+                                                         <div ba-panel>
+
+                                                             <button type="button" class="btn btn-default btn-icon" id="flip-btn5" style="float: left; margin-top: -5px; margin-left: -10px;">
+                                                                <i class="ion-arrow-left-c" style="color: red"></i>
+                                                            </button>
+
+
+                                                            <div class="ba-panel-heading">
+
+                                                                <h4 class="ba-panel-title" style="text-align: center; color: white;"><a data-toggle="collapse" data-target ="#collapse5,#collapse6" style="cursor: pointer; color: white;">Project Graph</a></h4>
+
+                                                            </div>
+
+                                                            <div id="collapse5" class="panel-collapse collapse" style="min-height: 900px; max-height: 900px;">
+
+
+                                                                <div class="panel-body">
+
+                                                                    <div class="banner-text"  ng-include="'pages/charts/amCharts/newChart/newChart.html'" style="width: 100%; height: 100%"></div>
+
+                                                                </div>
+
+                                                            </div>
+
+                                                </div>
+
+                                             </div>
+
+                                            <div class="back">
+
+                                                        <div ba-panel>
+
+                                                            <button type="button" class="btn btn-default btn-icon" id="unflip-btn5" style="float: left; margin-top: -5px; margin-left: -10px;">
+                                                                <i class="ion-arrow-left-c" style="color: red"></i>
+                                                            </button>
+
+                                                            <div class="ba-panel-heading">
+
+                                                                <h4 class="ba-panel-title" style="text-align: center; color: white;"><a data-toggle="collapse" data-target ="#collapse5,#collapse6" style="cursor: pointer;color: white;">Project Graph: Filter</a></h4>
+
+                                                            </div>
+
+                                                            <div id="collapse6" class="panel-collapse collapse" style="min-height: 900px; max-height: 900px;">
+
+                                                                <div class="panel-body" ng-include="'pages/charts/amCharts/newChart/filterChart.html'"></div>
+
+                                                            </div>
+
+                                                        </div>
+
+                                            </div>
+
+
+                                </div>
+
+    </div>
+
+</div>

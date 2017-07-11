@@ -1,0 +1,271 @@
+<style>
+    .funkyradio div {
+    }
+
+    .funkyradio label {
+        width: 100%;
+        border-radius: 3px;
+        border: 1px solid #D1D3D4;
+        font-weight: normal;
+    }
+
+    .funkyradio input[type="radio"]:empty,
+    .funkyradio input[type="checkbox"]:empty {
+        display: none;
+    }
+
+    .funkyradio input[type="radio"]:empty ~ label,
+    .funkyradio input[type="checkbox"]:empty ~ label {
+        position: relative;
+        line-height: 2.5em;
+        text-indent: 3.25em;
+        margin-top: 2em;
+        cursor:pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    .funkyradio input[type="radio"]:empty ~ label:before,
+    .funkyradio input[type="checkbox"]:empty ~ label:before {
+        position: absolute;
+        display: block;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        content: '';
+        width: 2.5em;
+        background: #D1D3D4;
+        border-radius: 3px 0 0 3px;
+    }
+
+    .funkyradio input[type="radio"]:hover:not(:checked) ~ label,
+    .funkyradio input[type="checkbox"]:hover:not(:checked) ~ label {
+        color: #888;
+    }
+
+    .funkyradio input[type="radio"]:hover:not(:checked) ~ label:before,
+    .funkyradio input[type="checkbox"]:hover:not(:checked) ~ label:before {
+        content: '\2714';
+        text-indent: .9em;
+        color: #C2C2C2;
+    }
+
+    .funkyradio input[type="radio"]:checked ~ label,
+    .funkyradio input[type="checkbox"]:checked ~ label {
+        color: #777;
+    }
+
+    .funkyradio input[type="radio"]:checked ~ label:before,
+    .funkyradio input[type="checkbox"]:checked ~ label:before {
+        content: '\2714';
+        text-indent: .9em;
+        color: #333;
+        background-color: #ccc;
+    }
+
+    .funkyradio input[type="radio"]:focus ~ label:before,
+    .funkyradio input[type="checkbox"]:focus ~ label:before {
+        box-shadow: 0 0 0 3px #999;
+    }
+
+    .funkyradio-default input[type="radio"]:checked ~ label:before,
+    .funkyradio-default input[type="checkbox"]:checked ~ label:before {
+        color: #333;
+        background-color: #ccc;
+    }
+
+    .funkyradio-primary input[type="radio"]:checked ~ label:before,
+    .funkyradio-primary input[type="checkbox"]:checked ~ label:before {
+        color: #fff;
+        background-color: #337ab7;
+    }
+
+    .funkyradio-success input[type="radio"]:checked ~ label:before,
+    .funkyradio-success input[type="checkbox"]:checked ~ label:before {
+        color: #fff;
+        background-color: #5cb85c;
+    }
+
+    .funkyradio-danger input[type="radio"]:checked ~ label:before,
+    .funkyradio-danger input[type="checkbox"]:checked ~ label:before {
+        color: #fff;
+        background-color: #d9534f;
+    }
+
+    .funkyradio-warning input[type="radio"]:checked ~ label:before,
+    .funkyradio-warning input[type="checkbox"]:checked ~ label:before {
+        color: #fff;
+        background-color: #f0ad4e;
+    }
+
+    .funkyradio-info input[type="radio"]:checked ~ label:before,
+    .funkyradio-info input[type="checkbox"]:checked ~ label:before {
+        color: #fff;
+        background-color: #5bc0de;
+    }
+
+</style>
+
+        <div class="row" ng-controller="FilterChartCtrl">
+
+            <div class="col-sm-12 col-md-6 col-lg-6">
+
+                <div class="row" style="margin-top: 30px;">
+
+                    <h1 style="text-align: center; color: white;"> Filter By Components</h1>
+
+                </div>
+
+                <hr style="margin-bottom: 50px; width: 10%">
+
+                <div class="row">
+
+                <div class="col-sm-12 col-md-offset-3 col-md-6 col-lg-offset-3 col-lg-6" style=" max-height:500px;overflow-y: scroll; border: solid 1px whitesmoke">
+
+                    <div class="row" ng-repeat="component in roles">
+
+                        <div class="col-sm-12 col-lg-offset-1 col-md-12 col-lg-10">
+
+                            <div class="radio-group">
+
+                                <div class="funkyradio">
+
+                                    <div class="funkyradio-success">
+
+                                        <input type="checkbox" id="{{$index}}" checklist-model="selectedComponents.ids" checklist-value="component.id" style="border-color: white; width: 10%">
+                                        <label for="{{$index}}" style="font-size: 18px; color: white;"> {{component.text}} </label>
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                </div>
+
+                <div class="row" style="margin-top: 30px">
+
+                    <div class="col-sm-12 col-md-offset-3 col-md-3 col-lg-offset-3 col-lg-3">
+
+                        <button type="button" class="btn btn-primary btn-lg" ng-click="checkAll()" style="width: 100%">Select All</button>
+
+                    </div>
+
+
+                    <div class="col-sm-12 col-md-3 col-lg-3">
+
+                        <button type="button" class="btn btn-primary btn-lg" ng-click="uncheckAll()" style="width: 100%">Deselect All</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-lg-6" style="max-height: 400px;">
+
+                <div class="row" style="margin-top: 30px;">
+
+                    <h1 style="text-align: center; color: white;"> Filter By Readiness</h1>
+
+                </div>
+
+                <hr style="margin-bottom: 20px; width: 10%">
+
+
+                <div class="row">
+
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+
+                            <div class="form-group">
+
+                                <div class="funkyradio" ng-repeat="ReadyOrNot in READINESSSTATUS">
+
+                                    <div class="col-sm-12 col-md-6 col-lg-6" >
+
+                                        <div class="funkyradio-success">
+
+                                            <input type="checkbox" id="{{ReadyOrNot.id}}" ng-model="ReadyOrNot.isUserAnswer" ng-value="true" ng-click="updatedSelection($index, READINESSSTATUS)" style="border-color: white;">
+                                            <label for="{{ReadyOrNot.id}}" class="checkbox-inline" style="font-size: 18px; color: white;"> {{ReadyOrNot.text}} </label>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+
+                    </div>
+
+                </div>
+
+
+                <div class="row" style="margin-top: 80px;">
+
+                    <h1 style="text-align: center; color: white;"> More Filter Options</h1>
+
+                </div>
+
+                <hr style="margin-bottom: 20px; width: 10%">
+
+
+                <div class="row">
+
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+
+
+                            <div class="funkyradio" ng-repeat="ShowComponent1Application in ONECOMPONENTAPPLICATION">
+
+                                <div class="col-sm-12 col-md-12 col-lg-12" >
+
+                                    <div class="funkyradio-success">
+
+                                        <input type="checkbox" id="{{ShowComponent1Application.id}}" ng-model="ShowComponent1Application.isUserAnswer" ng-value="true" style="border-color: white;">
+                                        <label for="{{ShowComponent1Application.id}}" class="checkbox-inline" style="font-size: 18px; color: white;"> {{ShowComponent1Application.text}} </label>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                    </div>
+
+
+
+                </div>
+
+
+                <div class="row">
+
+                    <div class="col-sm-12 col-md-offset-3 col-md-6 col-lg-offset-3 col-lg-6">
+
+                        <button class="btn btn-primary btn-with-icon center-block btn-lg" ng-click="Salvafilter(selectedComponents)" name="action" style="width: 100%; align-content: center; text-align: center; margin-top: 60px;"><i class="ion-android-download"></i>Add Filter</button>
+
+                    </div>
+
+                </div>
+
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+

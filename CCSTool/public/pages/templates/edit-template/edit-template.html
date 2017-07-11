@@ -1,0 +1,334 @@
+<content-top-template></content-top-template>
+
+<style>
+
+    .funkyradio div {
+        clear: both;
+        overflow: hidden;
+    }
+
+    .funkyradio label {
+        width: 100%;
+        border-radius: 3px;
+        border: 1px solid #D1D3D4;
+        font-weight: normal;
+    }
+
+    .funkyradio input[type="radio"]:empty,
+    .funkyradio input[type="checkbox"]:empty {
+        display: none;
+    }
+
+    .funkyradio input[type="radio"]:empty ~ label,
+    .funkyradio input[type="checkbox"]:empty ~ label {
+        position: relative;
+        line-height: 2.5em;
+        text-indent: 3.25em;
+        margin-top: 2em;
+        cursor:pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    .funkyradio input[type="radio"]:empty ~ label:before,
+    .funkyradio input[type="checkbox"]:empty ~ label:before {
+        position: absolute;
+        display: block;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        content: '';
+        width: 2.5em;
+        background: #D1D3D4;
+        border-radius: 3px 0 0 3px;
+    }
+
+    .funkyradio input[type="radio"]:hover:not(:checked) ~ label,
+    .funkyradio input[type="checkbox"]:hover:not(:checked) ~ label {
+        color: #888;
+    }
+
+    .funkyradio input[type="radio"]:hover:not(:checked) ~ label:before,
+    .funkyradio input[type="checkbox"]:hover:not(:checked) ~ label:before {
+        content: '\2714';
+        text-indent: .9em;
+        color: #C2C2C2;
+    }
+
+    .funkyradio input[type="radio"]:checked ~ label,
+    .funkyradio input[type="checkbox"]:checked ~ label {
+        color: #777;
+    }
+
+    .funkyradio input[type="radio"]:checked ~ label:before,
+    .funkyradio input[type="checkbox"]:checked ~ label:before {
+        content: '\2714';
+        text-indent: .9em;
+        color: #333;
+        background-color: #ccc;
+    }
+
+    .funkyradio input[type="radio"]:focus ~ label:before,
+    .funkyradio input[type="checkbox"]:focus ~ label:before {
+        box-shadow: 0 0 0 3px #999;
+    }
+
+    .funkyradio-default input[type="radio"]:checked ~ label:before,
+    .funkyradio-default input[type="checkbox"]:checked ~ label:before {
+        color: #333;
+        background-color: #ccc;
+    }
+
+    .funkyradio-primary input[type="radio"]:checked ~ label:before,
+    .funkyradio-primary input[type="checkbox"]:checked ~ label:before {
+        color: #fff;
+        background-color: #337ab7;
+    }
+
+    .funkyradio-success input[type="radio"]:checked ~ label:before,
+    .funkyradio-success input[type="checkbox"]:checked ~ label:before {
+        color: #fff;
+        background-color: #5cb85c;
+    }
+
+    .funkyradio-danger input[type="radio"]:checked ~ label:before,
+    .funkyradio-danger input[type="checkbox"]:checked ~ label:before {
+        color: #fff;
+        background-color: #d9534f;
+    }
+
+    .funkyradio-warning input[type="radio"]:checked ~ label:before,
+    .funkyradio-warning input[type="checkbox"]:checked ~ label:before {
+        color: #fff;
+        background-color: #f0ad4e;
+    }
+
+    .funkyradio-info input[type="radio"]:checked ~ label:before,
+    .funkyradio-info input[type="checkbox"]:checked ~ label:before {
+        color: #fff;
+        background-color: #5bc0de;
+    }
+
+    h3 {
+
+        color:black;
+
+    }
+
+    img {
+
+        transition: 0.3s ease;
+    }
+
+    img:hover {
+        transform: scale(1.2, 1.2);
+
+    }
+
+    .banner-text {
+        padding: 85px 0px 60px;
+        display: inline-block;
+        margin: 0px;
+        background: #ffffff;
+        min-width: 432px;
+        overflow: hidden;
+        background: rgba(0, 0, 0, 0.75); }
+
+    .banner-text h1 {
+        width: 100%;
+        color: #ffffff;
+        margin-bottom: 10px; }
+
+    .banner-text p {
+        line-height: 30px;
+        font-weight: 300;
+        color: #209e91;
+        margin-bottom: 0px; }
+
+
+    h6 {
+
+        font-size: 18px;
+
+    }
+
+    .panel {
+
+        transition: 0.3s ease;
+    }
+
+    .panel:hover {
+        transform: scale(1.02, 1.02);
+    }
+
+    .vcenter {
+        display: inline-block;
+        vertical-align: middle;
+        float: none;
+    }
+
+    li.active a {
+
+        text-decoration: none;
+        height: 100%;
+
+
+    }
+
+    li a {
+        text-decoration: none;
+    }
+
+    .banner-text {
+        padding: 85px 0px 60px;
+        display: inline-block;
+        margin: 0px;
+        background: #ffffff;
+        min-width: 432px;
+        overflow: hidden;
+        background: rgba(0, 0, 0, 0.75); }
+
+    .banner-text h1 {
+        width: 100%;
+        color: #ffffff;
+        margin-bottom: 10px; }
+
+    .banner-text p {
+        line-height: 30px;
+        font-weight: 300;
+        color: #209e91;
+        margin-bottom: 0px; }
+
+
+    img {
+
+        opacity: 0.5;
+        transition: 0.3s ease;
+        cursor: pointer;
+    }
+
+    img:hover {
+        transform: scale(1.5, 1.5);
+        opacity: 1;
+    }
+
+    uib-tabset {
+
+        color: white;
+
+    }
+
+    uib-tab {
+
+        color: white;
+    }
+
+
+    tab-heading {
+
+        color: white;
+        font-size: 40px;
+
+    }
+
+</style>
+
+<div class="banner-text" style="width: 100%; height: 100%">
+
+    <div class="row" style="margin-bottom: 70px;">
+
+        <div class="col-md-4 col-md-offset-4">
+
+            <div class="panel panel-default">
+
+                <div class="panel-heading" style="position: relative;">
+                    <h1 class="panel-title" style="text-align: center; color: black; font: Roboto;">{{ templateNAME }}</h1>
+
+                    <md-button style="position: absolute;top: 0; right: 0; padding-right: 10px; padding-top: 8px; z-index: 100;">
+                        <img class="png-icon" src="../../../images/delete_icon.png" ng-click="deleteTemplate()" style="width: 28px; height: 28px;" />
+                    </md-button>
+
+                </div>
+
+
+                <div class="panel-body">
+                    <h6 style="text-align: center; color: black;"> {{ templateDESCRIPTION }} </h6>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" ng-show="showPanel" style="margin-top: 50px;">
+
+    <div class="panel panel-default" ng-repeat="criteria in Criteria">
+
+        <div class="panel-heading" role="tab" id="{{'heading'+$index}}" ng-style="(CriteriaValueSelected[$index] == 0 && {} ) || (CriteriaValueSelectedAtStart[$index] !=0 && CriteriaValueSelected[$index] != CriteriaValueSelectedAtStart[$index] && {'background-color':'yellow', 'color': 'red'} ) || (CriteriaValueSelected[$index] != 0 && {'background-color':'#54C571', 'color':'white'})" >
+
+            <h4 class="panel-title">
+                <a target="_self" role="button" class="collapsed" aria-expanded="false" data-toggle="collapse" data-parent="#accordion" href="{{'#collapse'+$index}}" aria-controls="{{'collapse'+$index}}">
+
+                    <strong><b>{{ $index+1 + '.  ' + criteria.CRITERIANAME.NAME }} </b></strong>
+                </a>
+            </h4>
+
+        </div>
+
+        <div id="{{'collapse'+$index}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="{{'heading'+$index}}">
+
+            <div class="panel-body">
+
+                <div class="row">
+
+                    <div class="col-md-4 vcenter" style="min-height: 150px;">
+
+                        <div class="row text-center">
+
+                            <img src="{{'../../../images/'+$index+'.png'}}" style="width: 250px; height:250px;text-align: center; align-content: center; display: inline-block">
+                        </div>
+
+                        <div class="row">
+
+                            <h3 style="text-align: center; margin-top: 30px; margin-bottom: 30px;"> {{ criteria.CRITERIANAME.DESCRIPTION }}</h3>
+                        </div>
+
+                    </div><!--
+                            --><div class="col-md-6 vcenter">
+
+                    <div class="container">
+
+                        <div class="radio-group">
+
+                            <div class="funkyradio" style="border-left: solid; border-width: thin">
+
+                                <div class="funkyradio-success" ng-repeat="radio2 in criteria.CRITERIANAMEVALUES" style="width: 50%; margin-left: 80px">
+
+                                    <input type="radio" id="{{$index}}{{$parent.$index}}" ng-model="CriteriaValueSelected[$parent.$index]" ng-value="{{radio2.CRITERIAVALUE.CRITERIAVALUEID}}" ng-disabled="checked" >
+                                    <label for="{{$index}}{{$parent.$index}}" style="font-size: 18px;"> {{ radio2.CRITERIAVALUE.VALUE }} </label>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<button class="btn btn-primary btn-with-icon center-block"  ng-show="showPanel"  ng-click="editaTemplate(CriteriaValueSelected)" name="action" style="width: 40%; align-content: center; text-align: center; margin-top: 60px;"><i class="ion-android-download"></i>Edit Template</button>

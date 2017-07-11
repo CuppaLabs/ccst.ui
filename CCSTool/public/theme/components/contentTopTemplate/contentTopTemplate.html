@@ -1,0 +1,56 @@
+<style>
+
+  .pull-middle {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+  }
+
+ option {
+
+    background-color: #005562;
+  }
+
+</style>
+
+<div class="content-top clearfix">
+
+  <div class="row">
+
+     <div class="col-md-1 pull-middle">
+
+        <h1 class="al-title" style=" color: white; font-size: 24px; text-align: right; align-content: flex-end; float: right"> Template: </h1>
+
+     </div>
+
+  <div class="col-md-2 pull-middle" style="margin-left: -20px;">
+
+       <form style="color: red; background-color: transparent; vertical-align: middle; float: left;" >
+
+         <select class="form-control" style="color: red; background-color: transparent;font-size: 28px; height: 60px; border-color: transparent; float: left; align-content: flex-start"
+
+            name="naver2"
+            id="naver2"
+            ng-model="currentTemplate"
+            ng-options="a as a for a in templatesArray"
+            ng-change="change2()">
+
+            <option value="" disabled>Select a Template</option>
+
+          </select>
+
+       </form>
+
+  </div>
+
+    <div class="col-md-2 col-md-offset-6 pull-middle" style="float: right; align-content: flex-end; text-align: center">
+
+
+          <ul class="breadcrumb al-breadcrumb">
+              <li>
+                    <a href="#/dashboard"  style="color: white; font-size: 24px;padding-top: 15px; text-align: center">Home</a></li>
+              <li style="color: red; font-size: 24px;padding-top: 15px; text-align: center"> {{ activePageTitle }}</li>
+          </ul>
+    </div>
+  </div>
+</div>

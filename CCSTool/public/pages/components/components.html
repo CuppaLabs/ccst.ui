@@ -1,0 +1,139 @@
+<style>
+
+    /* Ripple In */
+    @-webkit-keyframes hvr-ripple-in {
+        100% {
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            opacity: 1;
+        }
+    }
+    @keyframes hvr-ripple-in {
+        100% {
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            opacity: 1;
+        }
+    }
+    .hvr-ripple-in {
+        display: inline-block;
+        vertical-align: middle;
+        -webkit-transform: perspective(1px) translateZ(0);
+        transform: perspective(1px) translateZ(0);
+        box-shadow: 0 0 1px transparent;
+        position: relative;
+    }
+    .hvr-ripple-in:before {
+        content: '';
+        position: absolute;
+        border: #e1e1e1 solid 4px;
+        top: -12px;
+        right: -12px;
+        bottom: -12px;
+        left: -12px;
+        opacity: 0;
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+    }
+    .hvr-ripple-in:hover:before, .hvr-ripple-in:focus:before, .hvr-ripple-in:active:before {
+        -webkit-animation-name: hvr-ripple-in;
+        animation-name: hvr-ripple-in;
+    }
+
+    .vcenter {
+        display: inline-block;
+        vertical-align: middle;
+        float: none;
+    }
+
+</style>
+
+<div class="row" style="margin-top: 20px; margin-bottom: 20px;" ng-show="visibility == false">
+
+    <div class="col-md-3">
+
+        <h2>Components not found!</h2>
+
+    </div>
+
+
+</div>
+
+<div class="container-fluid"ng-show="visibility == true">
+
+    <div class="row" style="margin-top: 20px; margin-bottom: 20px;">
+
+       <div class="col-lg-12">
+
+        <h1>Migration Islands</h1>
+
+       </div>
+
+    </div>
+
+    <hr>
+
+    <div class="row feed-message" ng-repeat="message in feed" ng-click="findID(message)" style="height: 85px;">
+
+        <div class="col-sm-12 col-md-1 vcenter" style="float: right; align-content: center; text-align: center;">
+
+            <img src="../../../images/{{ message.READINESSSTATUS }}.png" style="width: 50px; height: 50px; text-align: center;">
+            <h6 style="font-size: 16px">Readiness Status</h6>
+
+
+        </div><!--
+
+        --><div class="col-sm-12 col-md-1 vcenter" style="float: right; align-content: center; text-align: center; ">
+
+        <h3 style="margin-top: 15px; margin-bottom: 13px;" ng-style="message.PRIVATESCORE == 0 && {'color':'red', 'border-color':'black'} || message.PRIVATESCORE != 0 && message.PRIVATESCORE < 4 && {'color':'red', 'border-color':'black'} || message.PRIVATESCORE != 0 && message.PRIVATESCORE >= 4 && message.PRIVATESCORE < 6 && {'color':'red', 'border-color':'black'} ||  message.PRIVATESCORE != 0 && message.PRIVATESCORE >= 6 && {'color':'green', 'border-color':'black'} " > {{ message.PRIVATESCORE }} </h3>
+        <h6 style="font-size: 16px">Cloud Private Score</h6>
+
+    </div><!--
+
+         --><div class="col-sm-12 col-md-1 vcenter" style="float: right; align-content: center; text-align: center;">
+
+        <h3 style= "margin-top: 15px; margin-bottom: 13px;" ng-style="message.PUBLICSCORE == 0 && {'color':'red', 'border-color':'black'} || message.PUBLICSCORE != 0 && message.PUBLICSCORE < 4 && {'color':'red', 'border-color':'black'} || message.PUBLICSCORE != 0 && message.PUBLICSCORE >= 4 && message.PUBLICSCORE < 6 && {'color':'red', 'border-color':'black'} ||  message.PUBLICSCORE != 0 && message.PUBLICSCORE >= 6 && {'color':'green', 'border-color':'black'} " > {{ message.PUBLICSCORE }} </h3>
+        <h6 style="font-size: 16px">Cloud Public Score</h6>
+
+    </div>
+
+        <div class="col-sm-12 col-md-9" ng-repeat="message2 in feed2">
+
+            <div class="message-icon" ng-if="message2.type == 'text-message'">
+                <img class="photo-icon" ng-src="{{::( message2.author | profilePicture )}}">
+            </div>
+
+            <div class="message-icon" ng-if="message2.type != 'text-message'">
+                <img class="photo-icon" ng-src="{{::( message2.author | profilePicture )}}">
+                <span class="sub-photo-icon" ng-class="::message2.type"></span>
+            </div>
+
+
+            <div class="text-block text-message">
+
+                <div class="message-header">
+                    <span class="author" style="color: white; font-size: 18px;"> <!--{{ ::message.author }} -->Migration {{$parent.$index+1}}</span>
+                </div>
+
+
+                <div class="message-content line-clamp" ng-class="{'line-clamp-2' : !message.expanded}" style="color: #ECEFF1" >
+                    <span ng-if="message.preview" style="color: #ECEFF1; font-size: 24px;">{{message.header}} </span> # Applications: {{ numeroAppComponente[$parent.$index].count }}
+                </div>
+
+                <div class="preview" ng-show="message.expanded" ng-if="message.preview" style="color: #ECEFF1" >
+                    <a href="{{::message.link}}" target="_blank">
+                        <img ng-src="{{ ::( message.preview | appImage )}}">
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

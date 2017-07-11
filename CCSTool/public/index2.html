@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html ng-app="myApp" ng-controller="LoginCtrl">
+
+<style>
+
+    .animation-img {
+        opacity: 0;
+        position: relative;
+    }
+
+
+    .animation-img.img1 {
+
+        opacity:0;
+        -moz-transition: all 1000ms linear;
+        -webkit-transition: all 1000ms linear;
+        -o-transition: all 1000ms linear;
+        transition: all 1000ms linear;
+        -moz-transform: translate3d(0px, -400px, 0px);
+        -webkit-transform: translate3d(0px, -400px, 0px);
+        -o-transform: translate(0px, -400px);
+        -ms-transform: translate(0px, -400px);
+        transform: translate3d(0px, -400px, 0px);
+    }
+
+    .animation-img.img1.in-view {
+
+        opacity: 1;
+        -moz-transform: translate3d(0px, -500px, 0px);
+        -webkit-transform: translate3d(0px, -500px, 0px);
+        -o-transform: translate(0px, -500px);
+        -ms-transform: translate(0px, -500px);
+        transform: translate3d(0px, -500px, 0px);
+        transition-delay: 800ms;
+
+    }
+
+    .iconFlip:hover .image{
+        -webkit-transform: rotateY(180deg);
+        -webkit-transform-style: preserve-3d;
+        transform: rotateY(180deg);
+        transform-style: preserve-3d;
+    }
+    .iconFlip .image, .iconFlip:hover .image {
+        -webkit-transition: all 0.7s ease;
+        transition: all 0.7s ease;
+    }
+
+    .banner-text {
+        padding: 85px 0px 85px;
+        background: #ffffff;
+        background: rgba(0, 0, 0, 0.75);
+    }
+
+
+
+    #clock {
+
+        text-align: center;
+        color: red;
+
+
+    }
+
+
+    #text1 {
+
+        font-family: 'Montserrat'; font-size: 50px;
+        color:red;
+        text-align: center;
+
+    }
+
+    .main-container {
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    /*animation card*/
+
+
+
+    .animation-card {
+        opacity: 0;
+        position: relative;
+    }
+
+
+    .animation-card.card1 {
+
+        opacity:0;
+        -moz-transition: all 1000ms linear;
+        -webkit-transition: all 1000ms linear;
+        -o-transition: all 1000ms linear;
+        transition: all 1000ms linear;
+    }
+
+    .animation-card.card1.in-view {
+
+        opacity: 1;
+        transition-delay: 800ms;
+
+    }
+
+    .animation-card.card2 {
+
+        opacity:0;
+        -moz-transition: all 1000ms linear;
+        -webkit-transition: all 1000ms linear;
+        -o-transition: all 1000ms linear;
+        transition: all 1000ms linear;
+    }
+
+    .animation-card.card2.in-view {
+
+        opacity: 1;
+        transition-delay: 1200ms;
+
+    }
+
+    .animation-card.card3 {
+
+        opacity:0;
+        -moz-transition: all 1000ms linear;
+        -webkit-transition: all 1000ms linear;
+        -o-transition: all 1000ms linear;
+        transition: all 1000ms linear;
+    }
+
+    .animation-card.card3.in-view {
+
+        opacity: 1;
+        transition-delay: 1400ms;
+
+    }
+
+    .animation-card.card4 {
+
+        opacity:0;
+        -moz-transition: all 1000ms linear;
+        -webkit-transition: all 1000ms linear;
+        -o-transition: all 1000ms linear;
+        transition: all 1000ms linear;
+    }
+
+    .animation-card.card4.in-view {
+
+        opacity: 1;
+        transition-delay: 1600ms;
+
+    }
+
+    .animation-card.card5 {
+
+        opacity:0;
+        -moz-transition: all 1000ms linear;
+        -webkit-transition: all 1000ms linear;
+        -o-transition: all 1000ms linear;
+        transition: all 1000ms linear;
+    }
+
+    .animation-card.card5.in-view {
+
+        opacity: 1;
+        transition-delay: 1800ms;
+
+    }
+
+    .animation-card.card6 {
+
+        opacity:0;
+        -moz-transition: all 1000ms linear;
+        -webkit-transition: all 1000ms linear;
+        -o-transition: all 1000ms linear;
+        transition: all 1000ms linear;
+    }
+
+    .animation-card.card6.in-view {
+
+        opacity: 1;
+        transition-delay: 2000ms;
+
+    }
+
+    .animation-card.slide-left {
+        opacity: 0;
+        -moz-transition: all 1000ms linear;
+        -webkit-transition: all 1000ms linear;
+        -o-transition: all 1000ms linear;
+        transition: all 1000ms linear;
+        -moz-transform: translate3d(800px, 0px, 0px);
+        -webkit-transform: translate3d(800px, 0px, 0px);
+        -o-transform: translate(800px, 0px);
+        -ms-transform: translate(800px, 0px);
+        transform: translate3d(800px, 0px, 0px);
+    }
+
+    .animation-card.slide-left.in-view {
+        opacity: 1;
+        -moz-transform: translate3d(0px, 0px, 0px);
+        -webkit-transform: translate3d(0px, 0px, 0px);
+        -o-transform: translate(0px, 0px);
+        -ms-transform: translate(0px, 0px);
+        transform: translate3d(0px, 0px, 0px);
+        transition-delay: 1800ms;
+    }
+
+
+    .animation-element {
+        opacity: 0;
+        position: relative;
+    }
+
+    .animation-element.slide-left {
+        opacity: 0;
+        -moz-transition: all 2000ms linear;
+        -webkit-transition: all 2000ms linear;
+        -o-transition: all 2000ms linear;
+        transition: all 2000ms linear;
+        -moz-transform: translate3d(800px, 0px, 0px);
+        -webkit-transform: translate3d(800px, 0px, 0px);
+        -o-transform: translate(800px, 0px);
+        -ms-transform: translate(800px, 0px);
+        transform: translate3d(800px, 0px, 0px);
+    }
+
+    .animation-element.slide-left.in-view {
+        opacity: 1;
+        -moz-transform: translate3d(0px, 0px, 0px);
+        -webkit-transform: translate3d(0px, 0px, 0px);
+        -o-transform: translate(0px, 0px);
+        -ms-transform: translate(0px, 0px);
+        transform: translate3d(0px, 0px, 0px);
+        transition-delay: 1800ms;
+    }
+
+    /*media queries for small devices*/
+    @media screen and (max-width: 678px){
+        /*testimonials*/
+        .animation-element.slide-left.testimonial,
+        .animation-element.slide-left.testimonial:nth-of-type(odd),
+        .animation-element.slide-left.testimonial:nth-of-type(even){
+            width: 100%;
+            margin: 0px 0px 20px 0px;
+        }
+        .animation-element.slide-left.testimonial .right,
+        .animation-element.slide-left.testimonial .left,
+        .animation-element.slide-left.testimonial .content,
+        .animation-element.slide-left.testimonial .rating{
+            text-align: center;
+            float: none;
+        }
+        .animation-element.slide-left.testimonial img{
+            width: 85px;
+            height: 85px;
+            margin-bottom: 5px;
+        }
+
+</style>
+
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Materialize -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+
+    <!-- fonts -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- materialize.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+
+
+    <!-- rawgit jquery -->
+    <script src= "https://cdn.rawgit.com/rstaib/jquery-steps/master/build/jquery.steps.min.js"></script>
+
+    <!-- videoBackground css -->
+    <link href="stylesheets/normalize.css" rel="stylesheet" />
+    <link href="stylesheets/styles.css" rel="stylesheet" />
+
+    <!-- app.js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="javascripts/jquery.countdown.js"></script>
+
+
+</head>
+
+
+<body>
+
+<div class="main-container">
+
+    <!-- BarNav Start -->
+
+    <nav class="menu" id="fading" style="z-index: 1000">
+
+         <div class="nav-wrapper">
+
+                 <a href="#!" class="brand-logo center"><img src="images/logo_oracle.jpg" width="200"/></a>
+
+                        <!-- possibility to add links to the navbar
+
+                        <ul class="right hide-on-med-and-down">
+                            <li><a href=".html">Sass</a></li>
+                            <li><a href="badges.html">Components</a></li>
+                            <li class="active"><a href="collapsible.html">JavaScript</a></li>
+                        </ul>
+                         -->
+         </div>
+
+    </nav>
+
+    <!-- BarNav End-->
+
+    <!-- Header Start -->
+
+    <div class="row">
+
+        <div class="bv-testo">
+
+                <div class="col s6 offset-s3">
+
+                        <!-- Nuvoletta -->
+
+                        <img class= "animated infinite pulse" src="images/cloud.png" style="display: block; margin: 0 auto; margin-top: 80px;">
+
+                        <!-- Scritta -->
+
+                        <div id="heading" style="text-align: center; margin-top: -60px;">
+
+                            <h2 style="color:#FF0000; font-family:Coronetscript, cursive;">C</h2> <h2 style="color:#000000; font-family:'Lato', Helvetica, Arial, sans-serif;">loud </h2> <h2 style="color:#FF0000; font-family:Coronetscript, cursive;">C</h2> <h2 style="color:#000000; font-family:'Lato', Helvetica, Arial, sans-serif;">andidate </h2> <h2 style="color:#FF0000; font-family:Coronetscript, cursive;">S</h2> <h2 style="color:#000000; font-family:'Lato', Helvetica, Arial, sans-serif;">election </h2> <h2 style="color:#FF0000; font-family:Coronetscript, cursive;">T</h2> <h2 style="color:#000000; font-family:'Lato', Helvetica, Arial, sans-serif;">ool</h2>
+
+                        </div>
+
+                        <!-- Divider -->
+
+                        <div class="divider" style="width: 50%; text-align: center; align-content: center; display:block; margin: 0 auto; margin-top: 30px;">
+
+                        </div>
+
+                        <!-- Scritta -->
+
+                        <div style="text-align: center; margin-bottom: 70px; margin-top: -40px;">
+
+                            <h5 style="color:#FFFFFF;font-family:'Lato', Helvetica, Arial, sans-serif;  padding-top:150px;" > Discover the benefits that you would moving to the cloud</h5>
+
+                        </div>
+
+                        <!-- Button Start -->
+
+                    <div class="row">
+
+                        <form name = "loginForm" id="loginForm" novalidate>
+
+                        <div class="input-field col s3 offset-s2" style="color: white;">
+
+                            <input id="email2" type="email" ng-model="loginEmail.name" class="validate" style="color:white">
+                            <label for="email2" data-error="wrong" data-success="right" style="color: white;">Email</label>
+                            <span class="text-danger" ng-show="loginForm.email2.$error.required">Email is required.</span>
+
+
+                        </div>
+                        <div class="input-field col s3">
+
+                            <input id="password2" type="password" ng-model="loginPassword.name" class="validate" style="color: white">
+                            <label for="password2" data-error="wrong" data-success="right" style="color: white;">Password</label>
+                            <span class="text-danger" ng-show="loginForm.password2.$error.required">Password is required.</span>
+
+
+                        </div>
+
+                        <div class="col s3">
+                            <input type="button" class="btn btn-large waves-effect waves-light center" ng-click="login()" ng-disabled="loginForm.$invalid" value="Get Started">
+
+                          <!--  <a href="index.html#/dashboard" id="start-button" class="btn btn-large">Get Started</a>
+                            -->
+                        </div>
+
+
+                        </form>
+
+                    </div>
+
+                    <div class="row center">
+
+                        <div style="margin-top: 20px;">
+                            <h6 style="color: black">Don't have a Account? <a href="http://localhost:3000/registration.html"><strong style="color: yellow" >Register Now!</strong></a></h6>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+        </div>
+
+                 <!-- Video BackGround -->
+
+               <video class="bv-video" muted loop></video>
+
+    </div>
+
+    <!-- Header End -->
+
+    <!-- Zona Cloud Start -->
+
+    <!-- Scritta -->
+
+    <div class="row" style="margin-top: 40px;">
+
+        <h3 class="center-align" style="margin-top: 100px; font-family: Roboto;"> Top Benefits Of Cloud Computing</h3>
+
+        <div class="container">
+
+            <div class="divider" style="background-color: black; color: black;"></div>
+        </div>
+
+
+        <div class="col s6 offset-s3" style="margin-top: 10px">
+            <h6 style="text-align: center; font-family: "Roboto", sans-serif; ">Cloud computing is a big shift from the traditional way businesses think about IT resources.
+            What is it about cloud computing? Why is cloud computing so popular?
+            Here are 6 common reasons organisations are turning to cloud computing services: </h6>
+        </div>
+    </div>
+
+    <!-- Riga Card Start -->
+
+    <div class="row" style="margin-top: 70px; align-content: center;">
+
+        <!-- Primo Spazio Bianco -->
+
+        <div class="col s1"><img src="images/spazioBianco.png"></div>
+
+        <!-- Prima Card Start -->
+
+        <div class="col s3" style="margin-left: 20px;">
+
+            <div class="card-panel animation-card card1" style="min-height:400px; background-color: snow">
+
+                    <!-- Prima Icona Card -->
+                    <div class="row">
+
+                        <img src="images/cost.png" class="center-block" >
+
+                    </div>
+
+                <div class="row">
+
+                    <!-- Prima Scritta Card -->
+
+                              <h5 class="center" style="margin-bottom: 20px; color: black">Cost</h5>
+
+                                        <!-- Divider -->
+
+                                        <div class="container">
+
+                                                <div class="divider" style="background-color: black; color: black;"></div>
+                                        </div>
+
+                                <!-- Testo Prima Card -->
+
+                                <p class="black-text center-align" style="margin-bottom: 60px; text-align: justify; padding-left: 10px; padding-right: 10px;">Cloud computing eliminates the capital expense of buying hardware and software and setting up and running on-site datacenters—the racks of servers, the round-the-clock electricity for power and cooling, the IT experts for managing the infrastructure. It adds up fast.</p>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Prima Card End -->
+
+        <!-- Secondo Spazio Bianco -->
+
+        <div class="col s1"><img src="images/spazioBianco.png"></div>
+
+        <!-- Seconda Card Start -->
+
+            <div class="col s3" style="margin-left:-85px">
+
+            <div class="card-panel animation-card card2" style="min-height:400px; background-color: snow">
+
+                <!-- Seconda Icona Card -->
+
+                <div class="row">
+
+                    <img src="images/speed.png" class="center-block" >
+
+                </div>
+                <!-- Seconda Scritta Card -->
+
+                <div class="row">
+
+                <h5 class="center" style="margin-bottom: 20px; color: black;">Speed</h5>
+
+                    <!-- Separator -->
+
+                <div class="container">
+
+                    <div class="divider" style="background-color: black; color: black;"></div>
+                </div>
+
+                <!-- Secondo Testo Card -->
+
+                    <p class=" black-text center-align" style="margin-bottom: 60px; text-align: justify; padding-right: 10px; padding-left: 10px;">Most cloud computing services are provided self service and on demand, so even vast amounts of computing resources can be provisioned in minutes, typically with just a few mouse clicks, giving businesses a lot of flexibility and taking the pressure off capacity planning.</p>
+
+                </div>
+            </div>
+
+            </div>
+
+            <!-- Seconda Card End -->
+
+
+        <!-- Terzo Spazio Bianco -->
+
+        <div class="col s1" style="margin-right: -50px;"><img src="images/spazioBianco.png"></div>
+
+        <!-- Terza Card Start -->
+
+        <div class="col s3" style="margin-left: -40px;">
+
+
+        <div class="card-panel animation-card card3" style="min-height:400px; background-color: snow; margin-bottom: 100px;">
+
+            <!-- Terza Icon Card -->
+
+            <div class="row">
+
+                <img src="images/global-scale.png" class="center-block">
+
+            </div>
+            <!-- Terza Scritta Card -->
+
+            <div class="row">
+
+            <h5 class="center" style="margin-bottom: 20px; color: black;">Global scale</h5>
+
+                <!-- Separator -->
+
+                <div class="container">
+
+                    <div class="divider" style="background-color: black; color: black"></div>
+
+                </div>
+
+            <!-- Terzo Testo Card -->
+
+            <p class=" black-text center-align" style="margin-bottom: 40px;padding-left: 10px; padding-right: 10px; text-align: justify">The benefits of cloud computing services include the ability to scale elastically. In cloud speak, that means delivering the right amount of IT resources—for example, more or less computing power, storage, bandwidth—right when its needed and from the right geographic location.</p>
+
+            </div>
+
+        </div>
+
+        </div>
+
+    </div>
+
+    <div class="row" style="margin-top: 70px; align-content: center;">
+
+        <!-- Primo Spazio Bianco -->
+
+        <div class="col s1"><img src="images/spazioBianco.png"></div>
+
+        <!-- Prima Card Start -->
+
+        <div class="col s3" style="margin-left: 20px;">
+
+            <div class="card-panel animation-card card4" style="min-height:400px; background-color: snow">
+
+                <!-- Prima Icona Card -->
+                <div class="row">
+
+                    <img src="images/productivity.png" class="center-block">
+
+                </div>
+
+                <!-- Prima Scritta Card -->
+
+                <div class="row">
+
+                <h5 class="center" style="margin-bottom: 20px; color: black">Productivity</h5>
+
+                <!-- Divider -->
+
+                <div class="container">
+
+                    <div class="divider" style="background-color: black; color: black;"></div>
+                </div>
+
+                <!-- Testo Prima Card -->
+
+                <p class="black-text center-align" style="margin-bottom: 60px; text-align: justify; padding-left: 10px; padding-right: 10px;">On-site datacenters typically require a lot of “racking and stacking”—hardware set up, software patching and other time-consuming IT management chores. Cloud computing removes the need for many of these tasks, so IT teams can spend time on achieving more important business goals.</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Prima Card End -->
+
+        <!-- Secondo Spazio Bianco -->
+
+        <div class="col s1"><img src="images/spazioBianco.png"></div>
+
+        <!-- Seconda Card Start -->
+
+        <div class="col s3" style="margin-left:-85px">
+
+            <div class="card-panel animation-card card5" style="min-height:400px; background-color: snow">
+
+                <!-- Seconda Icona Card -->
+
+                <div class="row">
+
+                    <img src="images/performance.png" class="center-block" >
+
+                </div>
+                <!-- Seconda Scritta Card -->
+
+                <div class="row">
+                        <h5 class="center" style="margin-bottom: 20px; color: black;">Performance</h5>
+
+                    <!-- Separator -->
+
+                    <div class="container">
+
+                        <div class="divider" style="background-color: black; color: black;"></div>
+                    </div>
+
+                    <!-- Secondo Testo Card -->
+
+                    <p class=" black-text center-align" style="margin-bottom: 60px; text-align: justify; padding-right: 10px; padding-left: 10px;">The biggest cloud computing services run on a worldwide network of secure datacenters, which are regularly upgraded to the latest generation of fast and efficient computing hardware. This offers several benefits over a single corporate datacenter, including reduced network latency for applications and greater economies of scale.</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Seconda Card End -->
+
+
+        <!-- Terzo Spazio Bianco -->
+
+        <div class="col s1" style="margin-right: -50px;"><img src="images/spazioBianco.png"></div>
+
+        <!-- Terza Card Start -->
+
+        <div class="col s3" style="margin-left: -40px;">
+
+
+            <div class="card-panel animation-card card6" style="min-height:400px;background-color: snow; margin-bottom: 100px;">
+
+                <!-- Terza Icon Card -->
+
+                <div class="row">
+
+                    <img src="images/reliability.png" class="center-block">
+
+                </div>
+                <!-- Terza Scritta Card -->
+
+                <div class="row">
+
+                <h5 class="center" style="margin-bottom: 20px; color: black;">Reliability</h5>
+
+                <!-- Separator -->
+
+                <div class="container">
+
+                    <div class="divider" style="background-color: black; color: black"></div>
+
+                </div>
+
+                <!-- Terzo Testo Card -->
+
+                <p class=" black-text center-align" style="margin-bottom: 40px;padding-left: 10px; padding-right: 10px; text-align: justify">Cloud computing makes data backup, disaster recovery and business continuity easier and less expensive, because data can be mirrored at multiple redundant sites on the cloud provider’s network.</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Riga Card End -->
+
+    <!-- Parallax #1 Foto Start -->
+    <section class="slide" id="slide1">
+
+        <div class="row">
+
+            <div class="col s6 offset-s3">
+
+
+                <div class="banner-text" style="border: solid 5px black;">
+
+                    <div class="row">
+
+                        <div class="col s12">
+
+                            <div id="text1"> We're getting ready to launch </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col s6 offset-s3">
+
+                            <div id="clock"></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+    <!-- Parallax #1 Foto End -->
+
+    <!-- Spazio CCSTool Start -->
+
+    <section class="slide" id="slide4" style="background-color: whitesmoke">
+
+        <div class="row" style="margin-top: -20px">
+
+        <h1 style="font-family: 'Roboto'; font-size: 50px">CORE
+
+            <span style="color: blue">FEATURES</span> </h1>
+
+            <div class="container" style="width: 5%">
+
+                <div class="divider" style="background-color: black; color: black"></div>
+
+            </div>
+
+            <div class="col s4 offset-s4">
+
+                <p style="margin-top: 30px; font-size: 18px">This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit Lorem Ipsum. Proin gravida nibh vel velit</p>
+
+
+            </div>
+
+
+            <div class="col s6 offset-s1" style="margin-top: 200px">
+
+                <div class="row">
+
+                    <div class="col s1">
+                        <i class="material-icons" style="color: grey;float: right; font-size: 40px; margin-top: 12px;">done</i>
+                    </div>
+
+                    <div class="col s5" style="top:0">
+
+                        <h1 style=" text-align:left;font-size: 30px; color: blue; font-family: "Roboto", sans-serif">FEATURE #1</h1>
+
+                        <p style="text-align: left; font-size: 20px; mar"> This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.n</p>
+
+                    </div>
+
+                    <div class="col s1">
+                        <i class="material-icons" style="color: grey;float: right; font-size: 40px; margin-top: 12px;">done</i>
+                    </div>
+
+                    <div class="col s5" style="top:0">
+                        <h1 style=" text-align:left;font-size: 30px; color: blue; font-family: "Roboto", sans-serif">FEATURE #2</h1>
+
+                        <p style="text-align: left; font-size: 20px; mar"> This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.n</p>
+
+
+                    </div>
+
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col s1">
+                        <i class="material-icons" style="color: grey;float: right; font-size: 40px; margin-top: 12px;">done</i>
+                    </div>
+
+                    <div class="col s5" style="top:0">
+
+                    <h1 style=" text-align:left;font-size: 30px; color: blue; font-family: "Roboto", sans-serif">FEATURE #3</h1>
+
+                        <p style="text-align: left; font-size: 20px; mar"> This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.n</p>
+
+
+                    </div>
+
+                    <div class="col s1">
+                        <i class="material-icons" style="color: grey;float: right; font-size: 40px; margin-top: 12px;">done</i>
+                    </div>
+
+                    <div class="col s5" style="top:0">
+
+                    <h1 style=" text-align:left;font-size: 30px; color: blue; font-family: "Roboto", sans-serif">FEATURE #4</h1>
+
+                        <p style="text-align: left; font-size: 20px; mar"> This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.n</p>
+
+
+                    </div>
+
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col s1">
+                        <i class="material-icons" style="color: grey;float: right; font-size: 40px; margin-top: 12px;">done</i>
+                    </div>
+
+                    <div class="col s5" style="top:0">
+
+                        <h1 style=" text-align:left;font-size: 30px; color: blue; font-family: "Roboto", sans-serif">FEATURE #5</h1>
+
+                        <p style="text-align: left; font-size: 20px; mar"> This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.n</p>
+
+
+                    </div>
+
+                    <div class="col s1">
+                        <i class="material-icons" style="color: grey;float: right; font-size: 40px; margin-top: 12px;">done</i>
+                    </div>
+
+                    <div class="col s5" style="top:0">
+
+                        <h1 style=" text-align:left;font-size: 30px; color: blue; font-family: "Roboto", sans-serif">FEATURE #6</h1>
+
+                        <p style="text-align: left; font-size: 20px; mar"> This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.n</p>
+
+
+                    </div>
+
+
+                </div>
+
+            </div><!--
+
+           --><div class="col s5" style="margin-top: -50px;">
+
+            <div class="animation-element slide-left">
+
+                <img src="images/desktopApp.png">
+
+            </div>
+
+            </div>
+
+        </div>
+
+
+         <!-- testimonial one -->
+
+
+    </section>
+
+    <!-- Spazio CCSTool End -->
+
+    <section class="slide" id="slide8" style="background-color: white;">
+
+        <div class="row" style="margin-top: -20px">
+
+            <h1 style="font-family: 'Roboto'; font-size: 50px">HOW IT
+
+                <span style="color: blue">WORKS</span> </h1>
+
+            <div class="container" style="width: 5%">
+
+                <div class="divider" style="background-color: black; color: black"></div>
+
+            </div>
+
+            <div class="col s4 offset-s4">
+
+                <p style="margin-top: 30px; font-size: 30px">This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit Lorem Ipsum. Proin gravida nibh vel velit</p>
+
+
+            </div>
+        </div>
+
+            <div class="row" style="margin-top: 150px;">
+
+                <div class="col s4" style="text-align: center; margin-top: 300px;">
+
+                    <img id="prova1" src="images/addProject1.png" style="width: 150px; height: 150px;">
+
+                    <h1 style="font-family: 'Roboto'; font-size: 40px">
+
+
+                        <span style="color: blue">DOCUMENTATION</span></h1>
+
+                    <p style="margin-top: 30px; font-size: 18px">This is Photoshop's version of Lorem Ipsum.
+                        Proin gravida nibh vel velit Lorem Ipsum. Proin gravida nibh vel velit</p>
+
+
+                </div><!--
+
+                --><div class="col s4" style="text-align: center;">
+
+                <img id="prova2" src="images/addProject1.png" style="width: 150px; height: 150px;">
+
+                <h1 style="font-family: 'Roboto'; font-size: 40px">
+
+
+                    <span style="color: blue">DOCUMENTATION</span> </h1>
+
+                <p style="margin-top: 30px; font-size: 18px">This is Photoshop's version of Lorem Ipsum.
+                    Proin gravida nibh vel velit Lorem Ipsum. Proin gravida nibh vel velit</p>
+
+                </div><!--
+
+                --><div class="col s4" style="text-align: center; margin-top: 300px;">
+
+                <img id="prova3" src="images/addProject1.png" style="width: 150px; height: 150px;">
+
+                <h1 style="font-family: 'Roboto'; font-size: 40px">
+
+
+                    <span style="color: blue">DOCUMENTATION</span> </h1>
+
+                <p style="margin-top: 30px; font-size: 18px">This is Photoshop's version of Lorem Ipsum.
+                    Proin gravida nibh vel velit Lorem Ipsum. Proin gravida nibh vel velit</p>
+                </div>
+
+                <div class="animation-img img1 slide-left" style="z-index: 5">
+
+                    <img src="images/cloudCentrale.png" style="z-index: -10">
+
+                </div>
+
+            </div>
+
+
+        <!-- testimonial one -->
+
+
+    </section>
+
+
+
+    <!-- Parallax #2 Foto Start -->
+
+    <section class="slide" id="slide5" style="z-index: 100">
+
+        <!-- Parallax Testo -->
+
+        <h1 class="header col s12 light" style="color: white">Let's build a smarter planet together</h1>
+
+    </section>
+
+    <!-- Parallax #2 Foto End -->
+
+    <section class="slide" id="slide4">
+
+        <div class="row" style="margin-top: 70px; align-content: center;">
+
+            <div class="col s1"><img src="images/spazioBianco.png"></div>
+
+            <div class="col s3" style="margin-left: 40px;">
+
+                <div class="card-panel teal hoverable" style="border: 1px solid black;">
+
+                    <img src="images/flexibility.png" width="150px" style="margin-left: 100px; margin-top: -40px; margin-bottom: 10px;" >
+
+                    <h5 class="center" style="margin-top:-50px; margin-bottom: 20px;">Flexibity</h5>
+
+                    <div class="container">
+
+                        <div class="divider" style="background-color: black; color: black"></div>
+
+                    </div>
+
+                    <p class=" blue-grey-text text-lighten-5 center-align" style="margin-bottom: 60px;">Cloud-based services are ideal for businesses with growing or fluctuating bandwidth demands. If your needs increase it’s easy to scale up your cloud capacity, drawing on the service’s remote servers.  – it’s not surprising that CIOs and IT Directors rank ‘operational agility’ as a top driver for cloud adoption.</p>
+
+
+                </div>
+
+            </div>
+
+            <div class="col s1"><img src="images/spazioBianco.png"></div>
+
+            <div class="col s3" style="margin-left:-85px">
+
+                <div class="card-panel hoverable" style="border: 1px solid black; background-color: transparent">
+
+                    <img src="images/disaster_recovery_icon.png" width="150px" style="margin-left: 100px; margin-top: -40px; margin-bottom: 10px;" >
+
+                    <h5 class="center" style="margin-top:-50px; margin-bottom: 20px;">Disaster Recovery</h5>
+
+                    <div class="container">
+
+                        <div class="divider"></div>
+                    </div>
+                    <p class=" blue-grey-text text-lighten-5 center-align" style="margin-bottom: 60px;">Businesses of all sizes should be investing in robust disaster recovery.Cloud is now helping more organisations buck that trend. According to Aberdeen Group, small businesses are twice as likely as larger companies to have implemented cloud-based backup and recovery solutions that save time.</p>
+
+                </div>
+
+            </div>
+
+            <div class="col s1" style="margin-right: -50px;"><img src="images/spazioBianco.png"></div>
+
+            <div class="col s3" style="margin-left: -40px;">
+
+
+                <div class="card-panel" style="background-color: darkseagreen; margin-bottom: 100px;">
+                    <img src="images/flexibility.png" width="150px" style="margin-left: 100px; margin-top: -40px; margin-bottom: 10px;" >
+                    <h5 class="center" style="margin-top:-50px; margin-bottom: 20px;">Automatic Software Update</h5>
+                    <div class="container">
+
+                        <div class="divider"></div>
+                    </div>
+                    <p class=" blue-grey-text text-lighten-5 center-align" style="margin-bottom: 20px;">The beauty of cloud computing is that the servers are off-premise, out of sight and out of your hair. Suppliers take care of them for you and roll out regular software updates – including security updates – so you don’t have to worry about wasting time maintaining the system yourself. Leaving you free to focus on the things that matter, like growing your business.</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- Footer Start -->
+
+    <div class="slide" id="slide3" style="width: 100%; position: relative">
+
+        <!-- Parallax Testo -->
+
+        <h1 class="col s12 light" style="color: white">In cloud innovation has no boundaries</h1>
+
+    </div>
+
+    <!-- Pricing section starts -->
+    <!-- Pricing section ends -->
+
+
+</div>
+    <!-- Footer End -->
+
+
+    <!-- Scripting Zone -->
+
+    <!-- Jquery -->
+
+
+    <!-- materialize.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+
+<!-- AngularJs.js -->
+<script src="https://code.angularjs.org/1.2.25/angular.js"></script>
+
+<!-- app.js -->
+<script src="javascripts/app3.js"></script>
+
+<!-- scrollMe.js -->
+<script src="javascripts/scrollme.jquery.json"></script>
+<script src="javascripts/jquery.scrollme.js"></script>
+
+<script src="javascripts/dist/backgroundVideo.js"></script>
+
+
+    <script type="text/javascript">
+        $('#clock').countdown('2017/02/28', function(event) {
+            var $this = $(this).html(event.strftime(''
+                + '<div class="row" style="margin-top: 50px;"> '
+                + '<div class="col-sm-4">'
+                + '<span style="font-size: 50px">%D</span>  '
+                + '</div>'
+                + '<div class="col-sm-4">'
+                + '<span style="font-size: 50px">%H</span>  '
+                + '</div>'
+                + '<div class="col-sm-4">'
+                + '<span style="font-size: 50px">%S</span>  '
+                + '</div>'
+                + '</div>'
+                + '<div class="row"> '
+                + '<div class="col-sm-4">'
+                + '<span style="font-size: 30px">Days</span>  '
+                + '</div>'
+                + '<div class="col-sm-4">'
+                + '<span style="font-size: 30px">Hours</span>  '
+                + '</div>'
+                + '<div class="col-sm-4">'
+                + '<span style="font-size: 30px">Seconds</span>  '
+                + '</div>'
+                + '</div>'  ));
+        });
+
+    </script>
+
+
+    <script>
+    const backgroundVideo = new BackgroundVideo('.bv-video', {
+        src: [
+            'images/cloud_video.mp4',
+            'images/cloud_video.ogv',
+        ],
+        onReady: function () {
+            // Use onReady() to prevent flickers or force loading state
+            const vidParent = document.querySelector(`.${this.bvVideoWrapClass}`);
+            vidParent.classList.add('bv-video-wrap--ready');
+        }
+    });
+</script>
+
+
+<script>
+
+    $(window).on("scroll", function() {
+        if($(window).scrollTop() > 50) {
+            $(".menu").addClass("active");
+        } else {
+            //remove the background property so it comes transparent again (defined in your css)
+            $(".menu ").removeClass("active");
+        }
+    });
+</script>
+
+<script>
+
+    var $animation_elements3 = $('.animation-img');
+    var $window3 = $(window);
+
+    function check_if_in_view() {
+        var window_height = $window3.height();
+        var window_top_position = $window3.scrollTop();
+        var window_bottom_position = (window_top_position + window_height);
+
+        $.each($animation_elements3, function() {
+            var $element = $(this);
+            var element_height = $element.outerHeight();
+            var element_top_position = $element.offset().top;
+            var element_bottom_position = (element_top_position + element_height);
+
+            //check to see if this current container is within viewport
+            if ((element_bottom_position >= window_top_position) &&
+                (element_top_position <= window_bottom_position)) {
+                $element.addClass('in-view');
+            } else {
+                $element.removeClass('in-view');
+            }
+        });
+    }
+
+    $window3.on('scroll resize', check_if_in_view);
+    $window3.trigger('scroll');
+
+</script>
+
+<script>
+
+
+    var $animation_elements1 = $('.animation-element');
+    var $window1 = $(window);
+
+    function check_if_in_view() {
+        var window_height = $window1.height();
+        var window_top_position = $window1.scrollTop();
+        var window_bottom_position = (window_top_position + window_height);
+
+        $.each($animation_elements1, function() {
+            var $element = $(this);
+            var element_height = $element.outerHeight();
+            var element_top_position = $element.offset().top;
+            var element_bottom_position = (element_top_position + element_height);
+
+            //check to see if this current container is within viewport
+            if ((element_bottom_position >= window_top_position) &&
+                (element_top_position <= window_bottom_position)) {
+                $element.addClass('in-view');
+            } else {
+                $element.removeClass('in-view');
+            }
+        });
+    }
+
+    $window1.on('scroll resize', check_if_in_view);
+    $window.trigger('scroll');
+</script>
+
+
+<script>
+
+
+    var $animation_elements2 = $('.animation-card');
+    var $window2 = $(window);
+
+    function check_if_in_view() {
+        var window_height = $window2.height();
+        var window_top_position = $window2.scrollTop();
+        var window_bottom_position = (window_top_position + window_height);
+
+        $.each($animation_elements2, function() {
+            var $element = $(this);
+            var element_height = $element.outerHeight();
+            var element_top_position = $element.offset().top;
+            var element_bottom_position = (element_top_position + element_height);
+
+            //check to see if this current container is within viewport
+            if ((element_bottom_position >= window_top_position) &&
+                (element_top_position <= window_bottom_position)) {
+                $element.addClass('in-view');
+            } else {
+                $element.removeClass('in-view');
+            }
+        });
+    }
+
+    $window2.on('scroll resize', check_if_in_view);
+    $window2.trigger('scroll');
+</script>
+
+<script>
+
+    $('#prova1').hover(function() {
+
+        $(this).attr('src', 'images/addProject2.png');
+        $(this).attr('style','width: 150px; height: 150px; transition: transform 0.2s ease 0s; opacity: 0.2s ease 0s;');
+
+    }, function() {
+
+        $(this).attr('src', 'images/addProject1.png');
+        $(this).attr('style','width: 150px; height: 150px; transition: transform 0.2s ease 0s; opacity: 0.2s ease 0s;');
+
+        })
+
+</script>
+
+<script>
+
+    $('#prova2').hover(function() {
+
+        $(this).attr('src', 'images/addProject2.png');
+        $(this).attr('style','width: 150px; height: 150px; transition: transform 0.2s ease 0s; opacity: 0.2s ease 0s;');
+
+    }, function() {
+
+        $(this).attr('src', 'images/addProject1.png');
+        $(this).attr('style','width: 150px; height: 150px; transition: transform 0.2s ease 0s; opacity: 0.2s ease 0s;');
+
+    })
+</script>
+
+<script>
+
+    $('#prova3').hover(function() {
+
+        $(this).attr('src', 'images/addProject2.png');
+        $(this).attr('style','width: 150px; height: 150px; transition: transform 0.2s ease 0s; opacity: 0.2s ease 0s;');
+
+    }, function() {
+
+        $(this).attr('src', 'images/addProject1.png');
+        $(this).attr('style','width: 150px; height: 150px; transition: transform 0.2s ease 0s; opacity: 0.2s ease 0s;');
+
+    })
+</script>
+
+</body>
+
+</html>

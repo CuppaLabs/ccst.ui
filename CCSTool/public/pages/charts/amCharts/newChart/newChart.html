@@ -1,0 +1,35 @@
+
+            <div ng-show="!(isFiltered)" id="newChart" class="admin-chart" ng-controller="forceDirectedGraphCtrl">
+
+                <div class="row" style="float: right; margin-top: 20px; margin-right: 50px;">
+
+
+                    <button type="button" ng-click="(clusterMode = true) && (colorMode = false)" class="btn btn-primary">Cluster Mode</button>
+                    <button type="button" ng-click="(colorMode = true) && (clusterMode = false)" class="btn btn-primary">Color Mode</button>
+
+
+                </div>
+
+                <nvd3 ng-show="colorMode" options="options" data="data" class="with-3d-shadow with-transitions"></nvd3>
+                <nvd3 ng-show="clusterMode" options="options2" data="data" class="with-3d-shadow with-transitions"></nvd3>
+            </div>
+
+            <div ng-show="isFiltered" id="filterChart" class="admin-chart" ng-controller="FilterChartCtrl">
+
+                <div class="row" style="float: right; margin-top: 20px; margin-right: 50px;">
+
+
+                    <button type="button" ng-click="(clusterMode = true) && (colorMode = false)" class="btn btn-primary">Cluster Mode</button>
+                    <button type="button" ng-click="(colorMode = true) && (clusterMode = false)" class="btn btn-primary">Color Mode</button>
+
+
+                </div>
+
+                <nvd3 ng-show="colorMode" options="options" data="data" class="with-3d-shadow with-transitions"></nvd3>
+                <nvd3 ng-show="clusterMode" options="options2" data="data" class="with-3d-shadow with-transitions"></nvd3>
+
+            </div>
+
+
+
+
