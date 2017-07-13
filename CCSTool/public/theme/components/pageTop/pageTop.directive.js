@@ -15,7 +15,6 @@
         restrict: 'E',
         controller: 'PageTopCtrl',
         templateUrl:'theme/components/pageTop/pageTop.html'
-
     };
   }
 

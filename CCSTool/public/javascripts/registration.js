@@ -25,8 +25,8 @@ regApp.controller('RegistrationCtrl', function($scope, $http, $location) {
             .success(function (data, status) {
 
                 //alert("ok tutto riuscito");
-                location.replace('http://localhost:3000/HomePage.html');
-                alert("Your Registration is done! Please login with your credentials!");
+                location.replace('http://localhost:3000/index.html');
+                alert("Your Registration is done! Redirecting to the dashboard!");
 
             }).error(function (data, status, headers, config) {
 
