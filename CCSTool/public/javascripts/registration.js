@@ -1,13 +1,14 @@
 /**
  * Created by Marco on 31/12/2016.
  */
-var regApp = angular.module('myReg', []);
+var regApp = angular.module('myReg', ["ngStorage"]);
 
-regApp.controller('RegistrationCtrl', function($scope, $http, $location) {
+regApp.controller('RegistrationCtrl', function($scope, $http, $location,$localStorage) {
 
     $scope.registrationName = [];
     $scope.registrationEmail = [];
     $scope.registrationPassword = [];
+    $scope.token = [];
 
     $scope.registration = function() {
 
@@ -23,6 +24,12 @@ regApp.controller('RegistrationCtrl', function($scope, $http, $location) {
         $http.post('/api/v1/user/signup', datiRegistrazione)
 
             .success(function (data, status) {
+
+
+                $scope.token.push(data.TOKEN);
+
+                    // store username and token in local storage to keep user logged in between page refreshes
+                    $localStorage.currentUser = { username: data.NAME, token: data.TOKEN, userid: data.USERID };
 
                 //alert("ok tutto riuscito");
                 location.replace('http://nacssissil043.oracle.com:10800/index.html');
