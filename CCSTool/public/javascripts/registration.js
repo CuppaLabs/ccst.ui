@@ -31,11 +31,8 @@ regApp.controller('RegistrationCtrl', function($scope, $http, $location,$localSt
                     // store username and token in local storage to keep user logged in between page refreshes
                     $localStorage.currentUser = { username: data.NAME, token: data.TOKEN, userid: data.USERID };
 
-              
-
-
                 //alert("ok tutto riuscito");
-                location.replace('http://localhost:3000/index.html');
+                location.replace('http://nacssissil043.oracle.com:10800/index.html');
                 alert("Your Registration is done! Redirecting to the dashboard!");
 
             }).error(function (data, status, headers, config) {

@@ -67,11 +67,11 @@ App3.controller('LoginCtrl', function($scope, $http, $location, $localStorage, d
 
                 //alert(JSON.stringify($scope.token));
 
-                location.replace("http://localhost:3000/index.html");
+                location.replace("http://nacssissil043.oracle.com:10800/index.html");
 
 
                 //$location.path('/index.html').replace();
-                //$window.location.href = 'http://localhost:3000/index.html';
+                //$window.location.href = 'http://nacssissil043.oracle.com:10800/index.html';
 
             }).error(function (data, status, headers, config) {
 

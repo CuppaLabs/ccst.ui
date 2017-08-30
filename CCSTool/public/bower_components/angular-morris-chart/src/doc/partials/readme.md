@@ -72,7 +72,7 @@ $ bower install
 
 serve lib/docs with live reload
 ```sh
-#this serves docs on `http://localhost:3000` with live reload
+#this serves docs on `http://nacssissil043.oracle.com:10800` with live reload
 $ gulp serve
 ```
 
