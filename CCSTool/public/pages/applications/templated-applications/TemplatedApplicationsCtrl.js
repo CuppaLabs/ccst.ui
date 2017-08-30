@@ -183,7 +183,7 @@
 
                     }
 
-                    location.replace('http://nacssissil043.oracle.com:10800/index.html#/criteria/criteria-app');
+                    location.replace('http://localhost:3000/index.html#/criteria/criteria-app');
 
                 });
         }

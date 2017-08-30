@@ -84,20 +84,17 @@
             $http.post('api/v1/project/batch', projectArray2)
                 .success(function (data, status) {
 
-
-                    //$location.path('/dashboard');
-                    // $state.reload();
-
                     toastr.success('Your project has been created successfully!');
 
-                    location.replace('http://nacssissil043.oracle.com:10800/index.html');
+                    location.replace('http://localhost:3000/index.html');
 
                 }).error(function (data, status, headers, config) {
 
-                    if (name == "") {
+                    if (projectArray2.name == "") {
 
                         open('pages/ui/modals/modalProject/dangerProjectName.html');
-                        toastr.error("Your information hasn't been saved!", 'Error');                    }
+                        toastr.error("Your information hasn't been saved!", 'Error');     
+                    }
 
             });
 
@@ -188,7 +185,7 @@
 
                     }).error(function (data, status, headers, config) {
 
-                    location.replace('http://nacssissil043.oracle.com:10800/index.html');
+                    location.replace('http://localhost:3000/index.html');
 
 
                 });
@@ -305,13 +302,13 @@
 
 
 
-                        location.replace('http://nacssissil043.oracle.com:10800/index.html');
+                        location.replace('http://localhost:3000/index.html');
 
 
                     }).error(function (data, status, headers, config) {
 
                          alert("Project created successfully");
-                         location.replace('http://nacssissil043.oracle.com:10800/index.html');
+                         location.replace('http://localhost:3000/index.html');
 
 
                 });

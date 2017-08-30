@@ -15,7 +15,7 @@
 
         $scope.signOut = function(){
             $window.localStorage.clear();  
-            location.replace("http://nacssissil043.oracle.com:10800/HomePage.html");
+            location.replace("http://localhost:3000/HomePage.html");
         }
     }
 

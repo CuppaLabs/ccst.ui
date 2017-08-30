@@ -120,6 +120,8 @@ router.post('/api/v1/project/batch', authorization.authorize(), function(request
         return database.executeStatement(connection, statement);
     })
     .then(function(result) {
+        debugger;
+    console.log(this.result.outBinds.outId);
         this.result = result;
 
         statement.sql = 'INSERT INTO GRAPH(PROJECTID) ' +

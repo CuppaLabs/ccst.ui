@@ -236,6 +236,6 @@ function serverTask() {
 // Convenience task for opening the project straight from the command line
 
 function _openTask() {
-  exec('open http://nacssissil043.oracle.com:10800');
+  exec('open http://localhost:3000');
   exec('subl .');
 }

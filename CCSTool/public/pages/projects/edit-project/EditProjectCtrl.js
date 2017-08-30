@@ -33,7 +33,7 @@
                     function(response){
 
                         alert("Project Deleted");
-                        location.replace('http://nacssissil043.oracle.com:10800/index.html');
+                        location.replace('http://localhost:3000/index.html');
 
 
                         // success callback
@@ -103,7 +103,7 @@
             $http.post('/api/v1/project_application', ProjectApplication)
                 .success(function (data, status) {
 
-                   alert("applicazione salvata nel progetto");
+                   alert("Application saved in the project!");
                     $state.reload();
 
 
