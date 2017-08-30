@@ -86,7 +86,7 @@
 
                     toastr.success('Your project has been created successfully!');
 
-                    location.replace('http://localhost:3000/index.html');
+                    location.replace('http://http://nacssissil043.oracle.com:10800/index.html');
 
                 }).error(function (data, status, headers, config) {
 
@@ -185,7 +185,7 @@
 
                     }).error(function (data, status, headers, config) {
 
-                    location.replace('http://localhost:3000/index.html');
+                    location.replace('http://http://nacssissil043.oracle.com:10800/index.html');
 
 
                 });
@@ -302,13 +302,13 @@
 
 
 
-                        location.replace('http://localhost:3000/index.html');
+                        location.replace('http://http://nacssissil043.oracle.com:10800/index.html');
 
 
                     }).error(function (data, status, headers, config) {
 
                          alert("Project created successfully");
-                         location.replace('http://localhost:3000/index.html');
+                         location.replace('http://http://nacssissil043.oracle.com:10800/index.html');
 
 
                 });

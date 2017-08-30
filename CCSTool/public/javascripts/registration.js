@@ -32,7 +32,7 @@ regApp.controller('RegistrationCtrl', function($scope, $http, $location,$localSt
                     $localStorage.currentUser = { username: data.NAME, token: data.TOKEN, userid: data.USERID };
 
                 //alert("ok tutto riuscito");
-                location.replace('http://localhost:3000/index.html');
+                location.replace('http://http://nacssissil043.oracle.com:10800/index.html');
                 alert("Your Registration is done! Redirecting to the dashboard!");
 
             }).error(function (data, status, headers, config) {

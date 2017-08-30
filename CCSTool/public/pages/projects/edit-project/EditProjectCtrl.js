@@ -33,7 +33,7 @@
                     function(response){
 
                         alert("Project Deleted");
-                        location.replace('http://localhost:3000/index.html');
+                        location.replace('http://http://nacssissil043.oracle.com:10800/index.html');
 
 
                         // success callback
