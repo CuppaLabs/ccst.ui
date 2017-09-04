@@ -12,7 +12,7 @@
 
         $scope.templatesArray = [];
 
-        $rootScope.currentTemplate = $scope.templateNAME||dataService.getTemplateNAME();
+        $scope.currentTemplate = $scope.templateNAME||dataService.getTemplateNAME();;
         
         $scope.UserID = $localStorage.currentUser.userid;
 
