@@ -9,9 +9,11 @@
 
 
     /** @ngInject */
-    function WizardCtrl($scope,$http, $filter, dataService, $state, $rootScope, toastr, $uibModal) {
+    function WizardCtrl($scope,$http, $filter, dataService, $state, $rootScope, toastr, $uibModal, $localStorage) {
 
         $rootScope.hideit = true;
+        
+        $scope.UserID = $localStorage.currentUser.userid;
 
         $scope.Criteria = [];
         $scope.CriteriaValues = [];
@@ -62,7 +64,7 @@
         $scope.postTemplate = [];
 
 
-        $scope.creaTemplate = function (CriteriaValueSelected) {
+        $scope.createTemplate = function (CriteriaValueSelected) {
 
             var datiTemplate = JSON.stringify({
 
@@ -76,10 +78,11 @@
                 .success(function (data, status) {
 
                     $scope.templateID = data.TEMPLATEID;
-                    // dataService.setProjectID($scope.projectID);
+                    $scope.templateName = data.NAME;
+                    dataService.setTemplateNAME($scope.templateName);
+                    dataService.setTemplateID($scope.templateID );
 
-                    postUserTemplate2();
-                    postUserTemplate(CriteriaValueSelected);
+                    postUserTemplate2(CriteriaValueSelected);
 
                 }).error(function (data, status, headers, config) {
 
@@ -92,13 +95,11 @@
 
         }
 
-        function postUserTemplate2() {
+        function postUserTemplate2(CriteriaValueSelected) {
 
             var parameter10 = {
-
-                user_id: 63,
+                user_id: $scope.UserID,
                 template_id: $scope.templateID
-
             };
 
             var parameter11 = JSON.stringify(parameter10);
@@ -106,16 +107,12 @@
 
             $http.post('/api/v1/user_template', parameter11)
                 .success(function (data, status) {
-
-                    //alert("User_Template associato");
-
+                    console.log(data);
+                    postUserTemplate(CriteriaValueSelected);
 
                 }).error(function (data, status, headers, config) {
-
                 open('pages/ui/modals/modalTemplates/dangerModal.html');
-
                 toastr.error("Your template hasn't been created!", 'Error');
-
             });
 
         }
@@ -143,23 +140,13 @@
 
             $http.post('/api/v1/template_criteria/batch', parameter2)
                 .success(function (data, status) {
-
-                    //alert("Post fatta: criteria salvati nell'applicazione POST, adesso faccio la PUT");
-
                     open('pages/ui/modals/modalTemplates/successModal.html');
-
-
                     $state.reload();
-
                     toastr.success("Your Template has been created!");
 
-
                 }).error(function (data, status, headers, config) {
-
                 open('pages/ui/modals/modalTemplates/dangerModal.html');
-
                 toastr.error("Your Template hasn't been created!", 'Error');
-
             });
 
         }

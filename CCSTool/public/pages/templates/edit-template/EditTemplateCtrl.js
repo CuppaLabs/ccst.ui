@@ -6,20 +6,23 @@
     'use strict';
 
     angular.module('BlurAdmin.pages.templates')
-        .controller('EditTemplateCtrl', EditTemplateCtrl);
+            .controller('EditTemplateCtrl', EditTemplateCtrl);
 
 
     /** @ngInject */
-    function EditTemplateCtrl($scope, $http, $filter, dataService, $state, $rootScope, toastr) {
+    function EditTemplateCtrl($scope, $http, $filter, dataService, $state, $rootScope, toastr, $localStorage) {
 
         $rootScope.hideit = true;
+
         $scope.showPanel = false;
+        
+        $scope.UserID = $localStorage.currentUser.userid;
 
         $scope.templateID = dataService.getTemplateID();
         $scope.templateNAME = dataService.getTemplateNAME();
         $scope.templateDESCRIPTION = dataService.getTemplateDESCRIPTION();
 
-       // $scope.applicationID = {};
+        // $scope.applicationID = {};
 
         if ($scope.templateNAME == "") {
 
@@ -35,7 +38,7 @@
         }
 
 
-        $scope.deleteTemplate = function() {
+        $scope.deleteTemplate = function () {
 
             $http({
                 url: '/api/v1/template',
@@ -46,16 +49,16 @@
                 },
                 headers: {
                     "Content-Type": "application/json;" +
-                    "charset=utf-8"
+                            "charset=utf-8"
                 }
-            }).then(function(res) {
+            }).then(function (res) {
 
-               dataService.setTemplateNAME("");
+                dataService.setTemplateNAME("");
 
                 $state.reload();
 
                 console.log(res.data);
-            }, function(error) {
+            }, function (error) {
                 console.log(error);
             });
 
@@ -69,61 +72,57 @@
         $scope.CriteriaNameID = [];
         $scope.CriteriaValueID = [];
 
-        $http.get('api/v1/template_criteria?template_id=' + $scope.templateID)
-            .then(function(response) {
 
-                for (var x = 0; x < response.data.length; x++) {
+            $http.get('api/v1/template_criteria?template_id=' + $scope.templateID)
+                    .then(function (response) {
+
+                        for (var x = 0; x < response.data.length; x++) {
 
 
-                    $scope.CriteriaValueSelected.push(response.data[x].CRITERIAVALUEID.toString());
-                    $scope.CriteriaValueSelectedAtStart.push(response.data[x].CRITERIAVALUEID.toString());
+                            $scope.CriteriaValueSelected.push(response.data[x].CRITERIAVALUEID.toString());
+                            $scope.CriteriaValueSelectedAtStart.push(response.data[x].CRITERIAVALUEID.toString());
 
-                }
+                        }
 
-                calcolaPagina();
+                        calcolaPagina();
 
-            });
+                    });
 
 
         function calcolaPagina() {
 
 
             $http.get('api/v1/criteria_name_value')
-                .then(function (response) {
+                    .then(function (response) {
 
-                    var count = 0;
+                        var count = 0;
 
-                    for (var i = 0; i < response.data.length; i++) {
+                        for (var i = 0; i < response.data.length; i++) {
 
-                        $scope.Criteria.push(response.data[i]);
+                            $scope.Criteria.push(response.data[i]);
 
-                        $scope.CriteriaValues.push.apply($scope.CriteriaValues, response.data[i].CRITERIANAMEVALUES);
+                            $scope.CriteriaValues.push.apply($scope.CriteriaValues, response.data[i].CRITERIANAMEVALUES);
 
-                        if ($scope.CriteriaNameID[count] == response.data[i].CRITERIANAME.CRITERIANAMEID) {
+                            if ($scope.CriteriaNameID[count] == response.data[i].CRITERIANAME.CRITERIANAMEID) {
 
-                            $scope.CriteriaValueSelected.push($scope.CriteriaValueID[count].toString());
-                            $scope.CriteriaValueSelectedAtStart.push($scope.CriteriaValueID[count].toString());
+                                $scope.CriteriaValueSelected.push($scope.CriteriaValueID[count].toString());
+                                $scope.CriteriaValueSelectedAtStart.push($scope.CriteriaValueID[count].toString());
 
-                            count++;
+                                count++;
 
+                            } else {
+                                $scope.CriteriaValueSelected.push("0");
+                                $scope.CriteriaValueSelectedAtStart.push("0")
+
+                            }
+                            ;
                         }
-
-                        else {
-                            $scope.CriteriaValueSelected.push("0");
-                            $scope.CriteriaValueSelectedAtStart.push("0")
-
-                        }
-                        ;
-                    }
-
-                    //  alert(JSON.stringify($scope.CriteriaValueSelected));
-
-                });
+                    });
         }
 
         $scope.postTemplate = [];
 
-        $scope.editaTemplate = function(CriteriaValueSelected) {
+        $scope.editaTemplate = function (CriteriaValueSelected) {
 
             $scope.NewCriteriaValueSelected = CriteriaValueSelected;
 
@@ -140,21 +139,16 @@
                 });
             }
 
-            var parameter2 =JSON.stringify(parameter);
+            var parameter2 = JSON.stringify(parameter);
 
             $http.put('/api/v1/template_criteria/batch', parameter2)
-                .success(function (data, status) {
+                    .success(function (data, status) {
 
-                    //alert("criteria salvati nell'applicazione effettuando la  PUT");
+                        toastr.success('Template edited successfully!');
 
-                    toastr.success('Template edited successfully!');
+                        $state.reload();
 
-                    $state.reload();
-
-                }).error(function (data, status, headers, config) {
-
-
-                //alert("Error: Criteria not saved effettuando la PUT");
+                    }).error(function (data, status, headers, config) {
 
                 $state.reload();
             });
