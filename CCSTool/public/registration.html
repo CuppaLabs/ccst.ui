@@ -74,7 +74,7 @@
                         		<div class="form-top-divider" style="background-color: #66d6c5"></div>
                             </div>
                             <div class="form-bottom">
-			                    <form role="form" action="" method="post" class="registration-form">
+			                    <form name="registrationForm" role="form" action="" method="post" class="registration-form">
 
 									<div class="form-group">
 			                    		<label class="sr-only" for="form-name">Name</label>
@@ -83,13 +83,16 @@
 
 			                        <div class="form-group">
 			                        	<label class="sr-only" for="form-email">Email</label>
-			                        	<input type="email" name="form-email" ng-model="registrationEmail.name" placeholder="Email..." class="form-email form-control" id="form-email" style="height: 40px;">
-			                        </div>
+			                        	<input type="email" name="form-email" ng-model="registrationEmail.name" ng-pattern="/^[A-Za-z0-9._%+-]+@oracle.com$/" placeholder="Eg: user@oracle.com" required class="form-email form-control" id="form-email" style="height: 40px;">
+                                                        <span ng-show="registrationForm.$invalid" style="color:red">Please enter a valid email address.</span>
+                                                
+                                                </div>
 
 			                        <div class="form-group">
 			                        	<label class="sr-only" for="form-password">Password</label>
 			                        	<input type="password" name="form-password" ng-model="registrationPassword.name" placeholder="Password..." class="form-password form-control" id="form-password" style="height: 40px;">
-			                        </div>
+			                        
+                                                </div>
 
 									<button type="submit" class="btn" ng-click="registration()" style="margin-top: 40px;"><strong>Sign me up!</strong></button>
 			                    </form>
@@ -102,25 +105,25 @@
 
 
         <!-- Javascript -->
-        <script src="javascripts/libs/angular/1.2.25/angular.min.js"></script>
-        <script src="reg-assets/js/jquery-1.11.1.min.js"></script>
+        <!--<script src="reg-assets/js/jquery-1.11.1.min.js"></script>
         <script src="reg-assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="reg-assets/js/jquery.backstretch.min.js"></script>
         <script src="reg-assets/js/retina-1.1.0.min.js"></script>
         <script src="reg-assets/js/scripts.js"></script>
-        <script src="javascripts/ngStorage.min.js"></script>
+        <script src="javascripts/ngStorage.min.js"></script>-->
         
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script src="javascripts/libs/angular/1.2.25/angular.min.js"></script>
 
 
 
-
-
-    <!--<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
     <script src="javascripts/jquery.vide.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
     <script src="javascripts/jquery.countdown.js"></script>
-    <script src="javascripts/ngStorage.min.js"></script>-->
+    <script src="javascripts/ngStorage.min.js"></script>
 
 
 
