@@ -45,7 +45,7 @@
                 method: 'DELETE',
                 data: {
                     template_id: $scope.templateID,
-                    user_id: 63
+                    user_id: $scope.UserID
                 },
                 headers: {
                     "Content-Type": "application/json;" +
@@ -77,8 +77,6 @@
                     .then(function (response) {
 
                         for (var x = 0; x < response.data.length; x++) {
-
-
                             $scope.CriteriaValueSelected.push(response.data[x].CRITERIAVALUEID.toString());
                             $scope.CriteriaValueSelectedAtStart.push(response.data[x].CRITERIAVALUEID.toString());
 

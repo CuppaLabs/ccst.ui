@@ -79,8 +79,10 @@
 
                     $scope.templateID = data.TEMPLATEID;
                     $scope.templateName = data.NAME;
+                    $scope.description = data.DESCRIPTION;
                     dataService.setTemplateNAME($scope.templateName);
                     dataService.setTemplateID($scope.templateID );
+                    dataService.setTemplateDESCRIPTION($scope.description);
 
                     postUserTemplate2(CriteriaValueSelected);
 
