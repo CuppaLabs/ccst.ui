@@ -69,13 +69,13 @@
 
 <div class="row" style="margin-top: 20px; margin-bottom: 20px;">
 
-    <div class="col-md-9">
+    <div class="col-md-8">
 
         <h1>Completed Applications</h1>
 
     </div>
 
-    <div class="col-md-3" style="align-content: center; text-align: center;" >
+    <div class="col-md-4" style="align-content: center; text-align: center;" >
         <button  ng-click= "calculateReadinessBatch()" progress-button="progressFunction()" style=" width:100%; align-content: center; text-align: center;" pb-style="move-up" class="btn btn-info hvr-ripple-in">
 
             Calculate / Update Readiness
@@ -88,7 +88,7 @@
 
 <div class="feed-messages-container" track-width="smallContainerWidth" min-width="360">
 
-    <div class="row feed-message" ng-repeat="message in feed | filter: checkCompleted" ng-click="findID(message)" style="height: 85px;">
+    <div class="row feed-message" ng-repeat="message in feed | filter: checkCompleted" ng-click="findID(message)" style="height: 100%;">
 
         <div class="col-md-1 vcenter" style="float: right; align-content: center; text-align: center; margin-bottom: 5px;">
 
