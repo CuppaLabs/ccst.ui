@@ -8,14 +8,16 @@
         .controller('ContentTopTemplateCtrl', ContentTopTemplateCtrl );
 
     /** @ngInject */
-    function ContentTopTemplateCtrl($scope, $http, dataService, $state, $rootScope) {
+    function ContentTopTemplateCtrl($scope, $rootScope, $http, dataService, $state, $localStorage) {
 
         $scope.templatesArray = [];
 
-        $scope.currentTemplate = "Seleziona un template";
+        $scope.currentTemplate = $scope.templateNAME||dataService.getTemplateNAME();;
+        
+        $scope.UserID = $localStorage.currentUser.userid;
 
-
-        $http.get("/api/v1/user_template?" + "user_id=" + 63)
+       $http.get("/api/v1/user_template?" + "user_id=" + $scope.UserID)
+           // $http.get("/api/v1/template")
             .then(function(response) {
 
                 for (var i = 0; i < response.data.length; i++) {
@@ -25,11 +27,12 @@
 
             });
 
-
+  
         $scope.change2 = function() {
 
-            $http.get("/api/v1/user_template?" + "user_id=" + 63)
-                .then(function(response) {
+            $http.get("/api/v1/user_template?" + "user_id=" + $scope.UserID)
+               //$http.get("/api/v1/template")
+               .then(function(response) {
 
                     for (var i = 0; i < response.data.length; i++) {
 

@@ -21,13 +21,25 @@
     $scope.$watch(angular.bind(vm, function () {return vm.tabNum;}), calcProgress);
 
     vm.selectTab = function (tabNum) {
-      vm.tabs[vm.tabNum].submit();
+      vm && vm.tabs && vm.tabs[vm.tabNum] && vm.tabs[vm.tabNum].submit();
       if (vm.tabs[tabNum].isAvailiable()) {
         vm.tabNum = tabNum;
         vm.tabs.forEach(function (t, tIndex) {
           tIndex == vm.tabNum ? t.select(true) : t.select(false);
         });
       }
+    };
+    
+    vm.isDisable = function () {
+      if(vm.tabNum == 1){
+		 if(projectInfo && projectInfo.elements[0].value.length==0){
+			 return true;
+		 }else{
+			 return false;
+		 }
+	  } else{
+		  return false;
+	  }
     };
 
     vm.isFirstTab = function () {

@@ -25,6 +25,7 @@
           isAvailiable: isAvailiable,
           prevTab: undefined,
           setPrev: setPrev
+          //attrs:$attrs
         };
 
         wizard.addTab(tab);

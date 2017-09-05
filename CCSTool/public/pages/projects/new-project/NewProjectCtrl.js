@@ -114,8 +114,7 @@
         $scope.selectedItem = [];
 
         function getTemplate() {
-
-            $http.get("/api/v1/template")
+            $http.get("/api/v1/template?" + "user_id=" + $scope.UserID)
                 .then(function (response) {
 
                     $scope.templates = (response.data);
